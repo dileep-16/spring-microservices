@@ -8,5 +8,6 @@ public interface IArticleService {
 	List<com.example.springbootjpa.entity.Article> getAllArticles();
     Article getArticleById(int articleId);
 	boolean addArticle(Article article);
+	void deleteArticle(int articleId);
 
 }

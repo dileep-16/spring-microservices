@@ -12,12 +12,13 @@ import com.example.springbootjpa.entity.Article;
 public class ArticleServiceImpl implements IArticleService {
 	@Autowired
 	private IArticleDAO articleDAO;
+	@Transactional
 	@Override
 	public List<Article> getAllArticles() {
 		// TODO Auto-generated method stub
 		return articleDAO.getAllArticles();
 	}
-
+	@Transactional
 	@Override
 	public Article getArticleById(int articleId) {
 		// TODO Auto-generated method stub
@@ -32,6 +33,12 @@ public class ArticleServiceImpl implements IArticleService {
 	            articleDAO.addArticle(article);
 	            return true;
 	           
+	}
+	@Transactional
+	@Override
+	public void deleteArticle(int articleId) {
+		// TODO Auto-generated method stub
+		articleDAO.deleteArticle(articleId);
 	}
 	
 

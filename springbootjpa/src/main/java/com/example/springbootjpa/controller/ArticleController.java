@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,13 +39,16 @@ public class ArticleController
 }
 	@PostMapping("/article")
 	public ResponseEntity<Article> addArticle(@RequestBody Article article) {
-                boolean flag = articleService.addArticle(article);
-                /*if (flag == false) {
-        	    return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-                }
-                HttpHeaders headers = new HttpHeaders();
-                headers.setLocation(builder.path("/article/{id}").buildAndExpand(article.getArticleId()).toUri());*/
-                return new ResponseEntity<Article>(article, HttpStatus.CREATED);
+    boolean flag = articleService.addArticle(article);
+    return new ResponseEntity<Article>(article, HttpStatus.CREATED);
 	}
+  @DeleteMapping("/article/{id}")	 
+  public ResponseEntity<Void> deleteArticle(@PathVariable("id") Integer id)
+  { 
+	  articleService.deleteArticle(id);
+	  return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	
+	  
+  }
 	
 }	

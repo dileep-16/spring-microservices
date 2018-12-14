@@ -47,6 +47,7 @@ final static Logger logger = LoggerFactory.getLogger(ArticleDAOImpl.class);
 		
 	}
 
+
 	@Override
 	public boolean articleExists(String title, String category) {
 		// TODO Auto-generated method stub
@@ -54,6 +55,12 @@ final static Logger logger = LoggerFactory.getLogger(ArticleDAOImpl.class);
 		int count = entityManager.createQuery(hql).setParameter(1, title)
 		              .setParameter(2, category).getResultList().size();
 		return count > 0 ? true : false;
+	}
+
+	@Override
+	public void deleteArticle(int articleId) {
+		// TODO Auto-generated method stub
+		entityManager.remove(getArticleById(articleId));
 	}
 
 }

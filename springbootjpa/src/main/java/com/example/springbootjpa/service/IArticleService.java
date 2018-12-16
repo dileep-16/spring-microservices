@@ -9,5 +9,6 @@ public interface IArticleService {
     Article getArticleById(int articleId);
 	boolean addArticle(Article article);
 	void deleteArticle(int articleId);
+	void updateArticle(Article article);
 
 }

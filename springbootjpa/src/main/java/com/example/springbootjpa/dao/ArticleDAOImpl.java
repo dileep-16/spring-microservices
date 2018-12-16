@@ -63,4 +63,13 @@ final static Logger logger = LoggerFactory.getLogger(ArticleDAOImpl.class);
 		entityManager.remove(getArticleById(articleId));
 	}
 
+	@Override
+	public void updateArticle(Article article) {
+		// TODO Auto-generated method stub
+		Article artcl = getArticleById(article.getArticleId());
+		artcl.setTitle(article.getTitle());
+		artcl.setCategory(article.getCategory());
+		entityManager.flush();
+	}
+
 }

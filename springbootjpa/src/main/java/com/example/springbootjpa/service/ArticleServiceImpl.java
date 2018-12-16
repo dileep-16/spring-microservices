@@ -40,6 +40,12 @@ public class ArticleServiceImpl implements IArticleService {
 		// TODO Auto-generated method stub
 		articleDAO.deleteArticle(articleId);
 	}
+	@Transactional
+	@Override
+	public void updateArticle(Article article) {
+		// TODO Auto-generated method stub
+		articleDAO.updateArticle(article);
+	}
 	
 
 }

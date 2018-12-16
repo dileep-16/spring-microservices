@@ -10,5 +10,6 @@ public interface IArticleDAO {
     void addArticle(Article article);
     void deleteArticle(int articleId);
 	boolean articleExists(String title, String category);
+	void updateArticle(Article article);
 
 }
